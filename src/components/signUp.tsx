@@ -16,7 +16,7 @@ function SignUp({
     proppassword}: Props) {
     const [email, setEmail] = useState(propemail);
     const [username, setUsername] = useState(propusername)
-    const [first_name, setFirstName] = useState(propfirst_name)
+    const [first_name, setFirstName] = useState(propfirst_name) 
     const [password, setPassword] = useState(proppassword)
     const [loading, setLoading] = useState(false)
 
