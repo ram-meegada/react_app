@@ -12,6 +12,7 @@ function Hello({ propdata }: Props){
     useEffect(() => {
         axios.get("http://127.0.0.1:8000/testing/")
         .then(response => {
+            console.log(response.data, "data")
             setData(response.data);
             setloading(false);
         })

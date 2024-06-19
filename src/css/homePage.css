@@ -1,0 +1,26 @@
+table {
+    margin: 20px auto;
+    border-collapse: collapse;
+    font-family: Arial, sans-serif;
+}
+th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    background-color: rgb(81, 237, 38);
+    color: white;
+
+}
+tr:nth-child(even) {
+    background-color: lightcyan;
+}
+tr:hover {
+    background-color: red;
+}
+
+h1 {
+    text-align: center;
+}
