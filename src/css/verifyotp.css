@@ -1,0 +1,39 @@
+.container {
+    background-color: rgb(246, 54, 54);
+    color: white;
+    width: 350px !important;
+    margin: 15% auto;
+    height:200px;
+    border-radius: 10px;
+    }
+    
+.input-boxes {
+    display: flex;
+    }
+        
+.input-boxes input {
+    width: 50px;
+    border-radius: 10px;
+    margin: 8px;
+    outline: none;
+}
+
+.input-boxes input:hover {
+    outline: solid rgb(54, 246, 246);
+}
+
+.sub-btn {
+    width: 100%;
+    outline: none;
+    margin: 10px 0 0;
+    border-radius: 8px;
+}
+
+.sub-btn:hover {
+    background-color: rgb(54, 246, 246) !important;
+    color: rgb(255, 3, 3)
+}
+
+.box {
+    text-align: center;
+}

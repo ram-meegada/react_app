@@ -28,7 +28,7 @@ function HomePage() {
         },
       })
       .then((response) => {
-        console.log(token, "----token----");
+        console.log("books fetched successfully");
         setData(response.data.data);
       })
       .catch((error) => {
@@ -39,25 +39,33 @@ function HomePage() {
 
   const handleImageChangeUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
     e.preventDefault();
-    console.log(e.target.files, "----------");
     if (e.target.files) {
       setImage(e.target.files[0]);
     }
   };
   const handleImageUpload = (e: React.FormEvent) => {
     e.preventDefault();
+    let form_data = new FormData
+    if (image){
+        // console.log(image, "---image----")
+        form_data.append("file", image)
+        form_data.append("name", image.name)
+        form_data.append("title", image.type)
+    }
     axios
-      .post("http://127.0.0.1:8000/ppt-to-pdf/", image, {
+      .post("http://127.0.0.1:8000/ppt-to-pdf/", form_data, {
         headers: {
           Authorization: `Bearer ${token}`,
           "Content-Type": "multipart/form-data",
         },
       })
       .then((response) => {
+        setMessage(response.data.message)
         console.log(response, "successfully uploaded---");
       })
       .catch((error) => {
-        console.log(error, "error while upaoding");
+        setMessage(error.response.data.message)
+        // console.log(error.response.data.message, "---- error while upaoding -----");
       });
   };
 
@@ -109,7 +117,7 @@ function HomePage() {
           </button>
         </form>
       </div>
-      {message && <p>{message}</p>}
+      {message && <strong>{message}</strong>}
     </>
   );
 }
