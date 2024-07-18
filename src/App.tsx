@@ -10,7 +10,6 @@ import VerifyOtp from "./components/verifyOtp";
 
 function App() {
     const [email, password] = ["", ""];
-    const location = useLocation();
     return (
       <div>
         <Routes>

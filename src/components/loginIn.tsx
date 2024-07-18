@@ -63,7 +63,7 @@ function LoginIn() {
 
           <input type="submit" value="Submit" className="btn-submit"></input>
           <p className="login-para">
-            Do you have account? <a href="/login">Login Here</a>
+            Don't have account? <a href="/">Create Here</a>
           </p>
         </form>
       </div>
