@@ -8,12 +8,16 @@ import "react-toastify/dist/ReactToastify.css";
 function LoginIn() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [message, setMessage] = useState("");
   const navigate = useNavigate();
   const location = useLocation();
 
   useEffect(() => {
-    toast.success(location.state?.toast_message);
+    if (location.state?.status == 403) {
+      toast.info(location.state?.toast_message)
+    }
+    else {
+      toast.success(location.state?.toast_message);
+    }
     navigate(location.pathname, { replace: true, state: null });
   }, []);
 

@@ -7,6 +7,7 @@ import ViewBook from "./components/viewBook";
 import ProfileComponent from "./components/profilePage";
 import ChangePassword from "./components/changePassword";
 import VerifyOtp from "./components/verifyOtp";
+import ViewProfile from "./features/viewProfile"
 
 function App() {
     const [email, password] = ["", ""];
@@ -20,6 +21,7 @@ function App() {
           <Route path="/viewprofile" element={<ProfileComponent />}/>
           <Route path="/changepassword" element={<ChangePassword />}/>
           <Route path="/verify-otp" element={<VerifyOtp />}/>
+          <Route path="/profile" element={<ViewProfile />}/>
         </Routes>
       </div>
     )
