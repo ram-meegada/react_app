@@ -1,5 +1,10 @@
+.view-profile {
+    display: flex;
+    margin-left: 250px;
+}
+
 .view-profile-profile-name {
-    margin-left: 290px;
+    margin: 10px 40px;
     background-color: rgb(246, 54, 54);
     width: 300px;
     height: 300px;
@@ -35,17 +40,49 @@
     display: flex;
     flex-direction: column;
     background-color: rgb(246, 54, 54);
-    margin: auto 50%;
+    margin: 100px;
     padding: 20px;
-    width: 500px;
+    width: 450px;
     border-radius: 10px;
 }
 
 .view-profile-edit-details input {
     margin: 8px;
+    padding-left: 2px;
     width: 100%;
     height: 50px;
     border-radius: 10px;
     outline: none;
     box-shadow: none;
+    border: none;
+}
+
+.btn-submit {
+    width: 100%;
+    color: rgb(5, 5, 5);
+    background-color: white;
+    border-radius: 10px;
+    border: 2px solid white;
+    padding: 8px;
+    margin: 10px 0;
+    outline: none;
+}
+
+.btn-submit:hover {
+    background-color: rgb(54, 246, 246);
+    color: rgb(255, 3, 3);
+    font-weight: 500;
+    outline: none;
+}
+
+.view-profile-cam-logo {
+    margin: 0;
+}
+
+.view-profile-cam-logo img {
+    height: 50px;
+    width: 50px;
+    border-radius: 25px;
+    margin-left: 120px;
+    /* margin-top: 150px; */
 }

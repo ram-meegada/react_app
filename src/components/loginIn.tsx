@@ -12,6 +12,8 @@ function LoginIn() {
   const location = useLocation();
 
   useEffect(() => {
+    console.log(location, '---locamklksjnd');
+    
     if (location.state?.status == 403) {
       toast.info(location.state?.toast_message)
     }
