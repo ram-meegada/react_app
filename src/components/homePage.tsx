@@ -4,6 +4,7 @@ import { BASE_URL } from "../utils";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useNavigate } from "react-router-dom";
+import ColoursListingComponent from "./coloursListingComponent";
 
 function HomePage() {
   const [profile_picture, setProfilePicture] = useState("");
@@ -61,7 +62,7 @@ function HomePage() {
           <h1 className="home-sidebar-heading">LOGO</h1>
           <ul className="home-content">
             <li>
-              <a href="#">Manage Colours</a>
+              <a href="/manage-colours">Manage Colours</a>
             </li>
             <li>
               <a href="#">Manage #</a>
@@ -96,6 +97,7 @@ function HomePage() {
           </div>
         </div>
       </div>
+      <ColoursListingComponent />
       <ToastContainer />
     </>
   );

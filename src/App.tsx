@@ -8,6 +8,7 @@ import ProfileComponent from "./components/profilePage";
 import ChangePassword from "./components/changePassword";
 import VerifyOtp from "./components/verifyOtp";
 import ViewProfile from "./features/viewProfile"
+import ManageColours from "./features/manageColours";
 
 function App() {
     const [email, password] = ["", ""];
@@ -22,6 +23,7 @@ function App() {
           <Route path="/changepassword" element={<ChangePassword />}/>
           <Route path="/verify-otp" element={<VerifyOtp />}/>
           <Route path="/profile" element={<ViewProfile />}/>
+          <Route path="/manage-colours" element={<ManageColours />}/>
         </Routes>
       </div>
     )

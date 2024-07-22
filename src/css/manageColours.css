@@ -1,0 +1,38 @@
+.colours-table {
+    margin-left: 290px;
+    margin-top: 80px;
+}
+
+th, td {
+    border: 2px solid grey !important;
+    color: white;
+}
+
+th {
+    background-color: rgb(66, 64, 64) !important;
+}
+
+table {
+    width: calc(100% - 20px);
+    text-align: center;
+}
+
+.add-button {
+    position: absolute;
+    margin-left: 92.5%;
+    margin-top: 20px;
+    background-color: rgb(246, 54, 54);
+    width: fit-content;
+    padding: 10px;
+    border-radius: 2px;
+}
+
+.add-button {
+    text-decoration: none;
+    color: white;
+}
+
+.add-button:hover {
+    color: white;
+    background-color: rgb(66, 64, 64);
+}
