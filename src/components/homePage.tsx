@@ -3,7 +3,7 @@ import "../css/homePage.css";
 import { BASE_URL } from "../utils";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import ColoursListingComponent from "./coloursListingComponent";
 
 function HomePage() {
@@ -11,9 +11,12 @@ function HomePage() {
   const [first_name, setFirstName] = useState("");
   const [last_name, setLastName] = useState("");
   const api_token = localStorage.getItem("auth_token");
+  const location = useLocation();
   const navigate = useNavigate();
 
   useEffect(() => {
+    
+
     try {
       const fetchData = async () => {
         const api_hit = await fetch(`${BASE_URL}user/`, {

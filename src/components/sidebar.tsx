@@ -10,7 +10,7 @@ function SideBar() {
     <>
       <div className="home-container">
         <div className="home-sidebar">
-          <h1 className="home-sidebar-heading">LOGO</h1>
+          <h1 className="home-sidebar-heading"><a href="/home">LOGO</a></h1>
           <ul className="home-content">
             <li>
               <a href="#">Manage Colours</a>

@@ -26,7 +26,6 @@ const ColoursListingComponent = () => {
             if (api_hit.ok) {
                 setColors(response.data)
                 console.log(response.data, typeof(response.data), '------colors-------');
-                toast.success(response.message)
             }
             else {
                 toast.error(response.message)
@@ -37,7 +36,7 @@ const ColoursListingComponent = () => {
 
     return (
         <>
-            <a href='#' className='add-button'>Add Color</a>
+            <a href='/add-color' className='add-button'>Add Color</a>
             <div className='colours-table'>
                 <table>
                     <thead>
