@@ -12,6 +12,10 @@ th {
     background-color: rgb(66, 64, 64) !important;
 }
 
+td {
+    background-color: rgb(113, 111, 111) !important;
+}
+
 table {
     width: calc(100% - 20px);
     text-align: center;
@@ -19,7 +23,7 @@ table {
 
 .add-button {
     position: absolute;
-    margin-left: 92.5%;
+    margin-left: 91.8%;
     margin-top: 20px;
     background-color: rgb(246, 54, 54);
     width: fit-content;
@@ -35,4 +39,25 @@ table {
 .add-button:hover {
     color: white;
     background-color: rgb(66, 64, 64);
+}
+
+.colours-table-action {
+    display: flex;
+    width: fit-content;
+    list-style-type: none;
+    margin-left: 19px;
+    margin-bottom: 5px;
+    margin-top: 5px;
+    /* margin-top: 2px; */
+}
+
+.colours-table-action img {
+    height: 30px;
+    width: 30px;
+    margin-right: 10px;
+    border-radius: 20px;
+}
+
+.colours-table-action-delete:hover {
+    cursor: pointer;
 }
