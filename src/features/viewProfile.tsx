@@ -53,9 +53,9 @@ function ViewProfile() {
             <div className="view-profile-profile-name-first-layer">
               <img src={profile_picture} alt="Profile"></img>
             </div>
-            <div className="view-profile-cam-logo">
+            {/* <div className="view-profile-cam-logo">
                 <img src="../cam_logo.jfif" alt=""></img>
-            </div>
+            </div> */}
           </div>
           <div className="view-profile-edit-details">
             <input

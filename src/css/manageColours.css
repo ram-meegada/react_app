@@ -61,3 +61,7 @@ table {
 .colours-table-action-delete:hover {
     cursor: pointer;
 }
+
+.colours-table-action-edit:hover {
+    cursor: pointer;
+}

@@ -15,8 +15,6 @@ function HomePage() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    
-
     try {
       const fetchData = async () => {
         const api_hit = await fetch(`${BASE_URL}user/`, {
@@ -37,6 +35,9 @@ function HomePage() {
           );
           localStorage.setItem("first_name", response.data.first_name);
           localStorage.setItem("last_name", response.data.last_name);
+
+          toast.success(location.state?.toast_message)
+          navigate(location.pathname, { state: null, replace: true })
         } else if (!api_hit.ok) {
           console.log(response.status, '-----');
           

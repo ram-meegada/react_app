@@ -78,7 +78,7 @@ const ColoursListingComponent = () => {
                 <td style={{ width: "20%" }}>
                   <ul className="colours-table-action">
                     <li><img src="view_logo.jpg" alt="view" /></li>
-                    <li><img src="edit_logo.png" alt="edit" /></li>
+                    <li onClick={() => navigate("/edit-color", { state: { record: value } } ) } className="colours-table-action-edit"><img src="edit_logo.png" alt="edit" /></li>
                     <li onClick={() => handleDelete(value.id)} className="colours-table-action-delete"><img src="delete_logo.png" alt="delete" /></li>
                   </ul>
                 </td>
