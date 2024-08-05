@@ -11,6 +11,8 @@ import ViewProfile from "./features/viewProfile"
 import ManageColours from "./features/manageColours";
 import AddColour from "./features/addColour";
 import EditColour from "./features/editColour";
+import DownloadFiles from "./features/downloadFiles";
+import ChatModule from "./features/chat";
 
 function App() {
     const [email, password] = ["", ""];
@@ -28,6 +30,8 @@ function App() {
           <Route path="/manage-colours" element={<ManageColours />}/>
           <Route path="/add-color" element={<AddColour />}/>
           <Route path="/edit-color" element={<EditColour />}/>
+          <Route path="/download-files" element={<DownloadFiles />}/>
+          <Route path="/chat" element={<ChatModule />}/>
         </Routes>
       </div>
     )

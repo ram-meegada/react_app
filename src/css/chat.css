@@ -1,0 +1,13 @@
+.chat-main-div {
+    margin-left: 450px;
+    border: 5px solid rgb(246, 54, 54);
+    border-radius: 10px;
+    height: 100%;
+    width: 60%;
+    position: absolute;
+}
+
+.chat-text-div {
+    position: absolute;
+    
+}

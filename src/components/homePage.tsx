@@ -37,7 +37,7 @@ function HomePage() {
           localStorage.setItem("last_name", response.data.last_name);
 
           toast.success(location.state?.toast_message)
-          navigate(location.pathname, { state: null, replace: true })
+          navigate(location.pathname, { state: null })
         } else if (!api_hit.ok) {
           console.log(response.status, '-----');
           
@@ -69,10 +69,10 @@ function HomePage() {
               <a href="/manage-colours">Manage Colours</a>
             </li>
             <li>
-              <a href="#">Manage #</a>
+              <a href="/download-files">Manage downloads</a>
             </li>
             <li>
-              <a href="#">Manage #</a>
+              <a href="/chat">Chat With friend</a>
             </li>
             <li>
               <a href="#">Manage #</a>

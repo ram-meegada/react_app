@@ -1,0 +1,24 @@
+.download-button {
+    position: absolute;
+    margin-left: 40%;
+    margin-top: 10%;
+    background-color: rgb(246, 54, 54);
+    width: fit-content;
+    padding: 10px;
+    border-radius: 2px;
+}
+
+.download-button {
+    text-decoration: none;
+    color: white;
+}
+
+.download-button:hover {
+    color: white;
+    background-color: rgb(66, 64, 64);
+}
+
+/* a {
+    color: blue;
+    margin-left: 40%;
+} */

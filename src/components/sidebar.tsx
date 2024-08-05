@@ -16,10 +16,10 @@ function SideBar() {
               <a href="#">Manage Colours</a>
             </li>
             <li>
-              <a href="#">Manage #</a>
+              <a href="#">Manage Downloads</a>
             </li>
             <li>
-              <a href="#">Manage #</a>
+              <a href="/chat">Chat With friend</a>
             </li>
             <li>
               <a href="#">Manage #</a>
