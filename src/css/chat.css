@@ -1,13 +1,42 @@
 .chat-main-div {
-    margin-left: 450px;
+    margin-left: 600px;
     border: 5px solid rgb(246, 54, 54);
     border-radius: 10px;
-    height: 100%;
-    width: 60%;
+    margin-top: 5%;
+    height: 80%;
+    width: 30%;
     position: absolute;
 }
 
 .chat-text-div {
     position: absolute;
-    
+    width: 100%;
+    padding: 5px;
+    /* background-color: blue; */
+    margin-top: 118%;
+}
+
+.chat-text-area {
+    width: 80%;
+    margin-right: 18px;
+    margin-left: 10px;
+    border-radius: 10px;
+    padding: 5px;
+}
+
+.chat-send-button {
+    border-radius: 5px;
+}
+
+.chat-send-button:hover {
+    background-color: rgb(246, 54, 54);
+    color: white;
+}
+
+.chat-flow-div {
+    border: 2px solid black;
+    height: 90%;
+    margin-top: 10px;
+    margin-right: 10px;
+    margin-left: 10px;
 }
