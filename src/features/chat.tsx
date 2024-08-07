@@ -8,16 +8,21 @@ const ChatModule = () => {
     const [ messages, setMessages ] = useState<string[]>([]);
     const [ input_message, setInputMessage ] = useState("");
     const [ socket, setSocket ] = useState<WebSocket | null>(null)
+    const [ profile_picture, setprofilePicture ] = useState("")
 
     useEffect(() => {
         const ws = new WebSocket("ws://127.0.0.1:8000/ws/chat/");
         setSocket(ws)
+        const profile_picture = localStorage.getItem("profile_picture")
+        if (profile_picture){
+            setprofilePicture(profile_picture)
+        }
 
         ws.addEventListener("open", (event) => {
             toast.success("Connection established successfully.")
         });
         ws.addEventListener("message", (event) => {
-            console.log(event.data)
+            setMessages([...messages, JSON.parse(event.data).message])
         })
     }, []);
 
@@ -34,7 +39,10 @@ const ChatModule = () => {
             <div className="chat-container">
                 <div className="messages">
                     { messages.map((value, index) => (
-                        <p key={index}>{value}</p>
+                        <div key={index} className="message-box">
+                            <img src={profile_picture} alt="profile"></img>
+                            <p>{value}</p>
+                        </div>
                     )) }
                 </div>
                 <div className="input-container">

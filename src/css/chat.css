@@ -53,3 +53,20 @@
     background-color: #e0e0e0;
   }
   
+.chat-container img {
+  height: 40px;
+  width: 40px;
+  border-radius: 30px;
+}
+
+.message-box {
+  display: flex;
+}
+
+.message-box p {
+  margin-left: 15px;
+  margin-top: 6px;
+  max-width: 200px;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
