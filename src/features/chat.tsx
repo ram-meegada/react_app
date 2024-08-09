@@ -12,6 +12,7 @@ const ChatModule = () => {
     const [fullMessage, setFullMessage] = useState<string>('');
     const typingInterval = useRef<number | null>(null);
     const [ profile_picture, setprofilePicture ] = useState("")
+    const [ index, setIndex ] = useState(0)
 
     useEffect(() => {
         const ws = new WebSocket("ws://127.0.0.1:8000/ws/sync-chatbot/");
@@ -29,7 +30,7 @@ const ChatModule = () => {
         socket?.addEventListener("message", (event) => {
             console.log(event.data, typeof(event.data), '------');
             // setMessages([...messages, event.data])
-            setFullMessage(event.data);
+            setFullMessage(fullMessage + event.data);
         })
         socket?.addEventListener("close", () => {
             toast.error("Connection closed");
@@ -37,23 +38,13 @@ const ChatModule = () => {
     })
 
     useEffect(() => {
-        if (fullMessage) {
-            let index = 0;
-            const typeNextLetter = () => {
-                if (index < fullMessage.length) {
-                    setDisplayedText(prev => prev + fullMessage[index]);
-                    index++;
-                } else {
-                    // Stop typing effect when the full message is displayed
-                    if (typingInterval.current) {
-                        clearInterval(typingInterval.current);
-                    }
-                }
-            };
-
-            typingInterval.current = setInterval(typeNextLetter, 50); // Adjust typing speed by changing the interval
+        const text = "Hi Iam Ram. Iam currently working as software developer in apptunix."
+        function write_text() {
+            
         }
-    }, [fullMessage]);
+
+    }, [fullMessage])
+
 
     const handleMessage = () => {
         socket?.send(input_message)
@@ -75,7 +66,7 @@ const ChatModule = () => {
                             {/* <p>{value}</p> */}
                         {/* </div> */}
                     {/* )) } */}
-                    <p>{displayedText}</p>
+                    {fullMessage}
                 </div>
                 <div className="input-container">
                     <input
