@@ -5,20 +5,20 @@ import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 const ChatModule = () => {
-    const [ messages, setMessages ] = useState<string[]>([]);
-    const [ input_message, setInputMessage ] = useState("");
-    const [ socket, setSocket ] = useState<WebSocket | null>(null)
+    const [messages, setMessages] = useState<string[]>([]);
+    const [input_message, setInputMessage] = useState("");
+    const [socket, setSocket] = useState<WebSocket | null>(null)
     const [displayedText, setDisplayedText] = useState<string>('');
     const [fullMessage, setFullMessage] = useState<string>('');
     const typingInterval = useRef<number | null>(null);
-    const [ profile_picture, setprofilePicture ] = useState("")
-    const [ index, setIndex ] = useState(0)
+    const [profile_picture, setprofilePicture] = useState("")
+    const [index, setIndex] = useState(0)
 
     useEffect(() => {
-        const ws = new WebSocket("ws://127.0.0.1:8000/ws/sync-chatbot/");
+        const ws = new WebSocket("ws://127.0.0.1:8000/file-summarization/");
         setSocket(ws)
         const profile_picture = localStorage.getItem("profile_picture")
-        if (profile_picture){
+        if (profile_picture) {
             setprofilePicture(profile_picture)
         }
     }, []);
@@ -28,26 +28,34 @@ const ChatModule = () => {
             toast.success("Connection established successfully.")
         });
         socket?.addEventListener("message", (event) => {
-            console.log(event.data, typeof(event.data), '------');
-            // setMessages([...messages, event.data])
-            setFullMessage(fullMessage + event.data);
+            // console.log(event.data, typeof(event.data), '------');
+            const data = JSON.parse(event.data)
+            if (data.signal == 1) {
+                setMessages([...messages, data.data])
+            }
+            else if (data.signal == 0) {
+                toast.success("Summary generated successfully")
+            }
+            // setFullMessage(event.data);
         })
         socket?.addEventListener("close", () => {
             toast.error("Connection closed");
         })
     })
 
-    useEffect(() => {
-        const text = "Hi Iam Ram. Iam currently working as software developer in apptunix."
-        function write_text() {
-            
-        }
+    // useEffect(() => {
+    //     const text = "Hi Iam Ram. Iam currently working as software developer in apptunix."
+    //     let index = 0
+    //     if (index)
+    //     function write_text() {
 
-    }, [fullMessage])
+    //     }
+
+    // }, [])
 
 
     const handleMessage = () => {
-        socket?.send(input_message)
+        socket?.send(JSON.stringify({ data: input_message, signal: 1}))
         setMessages(prevMessages => [...prevMessages, input_message])
         console.log(messages, '----messages----');
 
@@ -60,13 +68,13 @@ const ChatModule = () => {
             <SideBar></SideBar>
             <div className="chat-container">
                 <div className="messages">
-                    {/* { messages.map((value, index) => ( */}
-                        {/* <div key={index} className="message-box"> */}
+                    {messages.map((value, index) => (
+                        <div key={index} className="message-box">
                             {/* <img src={profile_picture} alt="profile"></img> */}
-                            {/* <p>{value}</p> */}
-                        {/* </div> */}
-                    {/* )) } */}
-                    {fullMessage}
+                            <p>{value}</p>
+                        </div>
+                    ))}
+                    {/* {fullMessage} */}
                 </div>
                 <div className="input-container">
                     <input
