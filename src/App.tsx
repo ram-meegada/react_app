@@ -14,6 +14,8 @@ import EditColour from "./features/editColour";
 import DownloadFiles from "./features/downloadFiles";
 import ChatModule from "./features/chat";
 import ViewColour from "./features/viewColour";
+import AttemptQuiz from "./features/attemptQuiz";
+import QuizListing from "./features/quizListing";
 
 function App() {
     const [email, password] = ["", ""];
@@ -34,6 +36,8 @@ function App() {
           <Route path="/edit-color" element={<EditColour />}/>
           <Route path="/download-files" element={<DownloadFiles />}/>
           <Route path="/chat" element={<ChatModule />}/>
+          <Route path="/attempt-quiz" element={<AttemptQuiz />}/>
+          <Route path="/quiz-listing" element={<QuizListing />}/>
         </Routes>
       </div>
     )

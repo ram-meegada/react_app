@@ -75,7 +75,7 @@ function HomePage() {
               <a href="/chat">Chat With friend</a>
             </li>
             <li>
-              <a href="#">Manage #</a>
+              <a href="/quiz-listing">Take Quiz</a>
             </li>
             <li>
               <a href="#">Manage #</a>
