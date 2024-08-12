@@ -16,7 +16,7 @@ const ChatModule = () => {
     const [index, setIndex] = useState(0)
 
     useEffect(() => {
-        const ws = new WebSocket("ws://127.0.0.1:9041/generate-article/");
+        const ws = new WebSocket("wss://c4e4-180-188-237-29.ngrok-free.app/ws/sync-chatbot/");
         setSocket(ws)
         const profile_picture = localStorage.getItem("profile_picture")
         if (profile_picture) {
@@ -40,8 +40,6 @@ const ChatModule = () => {
             // setFullMessage(event.data);
         })
         socket?.addEventListener("close", (e) => {
-            console.log(e, '----wss://da93-112-196-43-19.ngrok-free.app/file-summarization/------');
-            
             toast.error("Connection closed");
         })
     })

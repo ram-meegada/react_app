@@ -23,6 +23,7 @@ const ColoursListingComponent = () => {
           headers: {
             Authorization: `Bearer ${api_token}`,
             "Content-Type": "application/json",
+            'Ngrok-Skip-Browser-Warning': '1'
           },
         });
         const response = await api_hit.json();
