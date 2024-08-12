@@ -10,12 +10,13 @@ const ChatModule = () => {
     const [socket, setSocket] = useState<WebSocket | null>(null)
     const [displayedText, setDisplayedText] = useState<string>('');
     const [fullMessage, setFullMessage] = useState<string>('');
+    const [success_message, setSuccessMessage] = useState<string>('');
     const typingInterval = useRef<number | null>(null);
     const [profile_picture, setprofilePicture] = useState("")
     const [index, setIndex] = useState(0)
 
     useEffect(() => {
-        const ws = new WebSocket("ws://127.0.0.1:8000/file-summarization/");
+        const ws = new WebSocket("ws://127.0.0.1:9041/generate-article/");
         setSocket(ws)
         const profile_picture = localStorage.getItem("profile_picture")
         if (profile_picture) {
@@ -34,28 +35,34 @@ const ChatModule = () => {
                 setMessages([...messages, data.data])
             }
             else if (data.signal == 0) {
-                toast.success("Summary generated successfully")
+                setSuccessMessage("Summary generated successfully")
             }
             // setFullMessage(event.data);
         })
-        socket?.addEventListener("close", () => {
+        socket?.addEventListener("close", (e) => {
+            console.log(e, '----wss://da93-112-196-43-19.ngrok-free.app/file-summarization/------');
+            
             toast.error("Connection closed");
         })
     })
 
-    // useEffect(() => {
-    //     const text = "Hi Iam Ram. Iam currently working as software developer in apptunix."
-    //     let index = 0
-    //     if (index)
-    //     function write_text() {
-
-    //     }
-
-    // }, [])
+    useEffect(() => {
+        if (success_message){
+            toast.success(success_message)
+        }
+    }, [success_message])
 
 
     const handleMessage = () => {
-        socket?.send(JSON.stringify({ data: input_message, signal: 1}))
+        const data = {
+            "topic": "kane williamson",
+            "words": 500,
+            "language": "arabic",
+            "region": "New zealand",
+            "tone": "Realistic",
+            "pronouns": "Third person"
+        }
+        socket?.send(JSON.stringify(data))
         setMessages(prevMessages => [...prevMessages, input_message])
         console.log(messages, '----messages----');
 
