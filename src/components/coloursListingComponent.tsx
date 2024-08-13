@@ -23,7 +23,7 @@ const ColoursListingComponent = () => {
           headers: {
             Authorization: `Bearer ${api_token}`,
             "Content-Type": "application/json",
-            'Ngrok-Skip-Browser-Warning': '1'
+            'ngrok-skip-browser-warning': "1"
           },
         });
         const response = await api_hit.json();
@@ -44,7 +44,7 @@ const ColoursListingComponent = () => {
       method: "DELETE",
       headers: {
         Authorization: `Bearer ${api_token}`,
-        "Content-Type": "application/json",
+        "Content-Type": "application/json"
       },
     })
     const response = await api_hit.json();

@@ -3,6 +3,7 @@ import SideBar from "../components/sidebar";
 import "../css/chat.css";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { PAYLOAD } from "../paylaod";
 
 const ChatModule = () => {
     const [messages, setMessages] = useState<string[]>([]);
@@ -16,7 +17,7 @@ const ChatModule = () => {
     const [index, setIndex] = useState(0)
 
     useEffect(() => {
-        const ws = new WebSocket("wss://c4e4-180-188-237-29.ngrok-free.app/ws/sync-chatbot/");
+        const ws = new WebSocket("ws://127.0.0.1:9041/audio-to-text/");
         setSocket(ws)
         const profile_picture = localStorage.getItem("profile_picture")
         if (profile_picture) {
@@ -29,7 +30,7 @@ const ChatModule = () => {
             toast.success("Connection established successfully.")
         });
         socket?.addEventListener("message", (event) => {
-            // console.log(event.data, typeof(event.data), '------');
+            console.log(event.data, typeof(event.data), '------');
             const data = JSON.parse(event.data)
             if (data.signal == 1) {
                 setMessages([...messages, data.data])
@@ -50,17 +51,16 @@ const ChatModule = () => {
         }
     }, [success_message])
 
-
     const handleMessage = () => {
-        const data = {
-            "topic": "kane williamson",
-            "words": 500,
-            "language": "arabic",
-            "region": "New zealand",
-            "tone": "Realistic",
-            "pronouns": "Third person"
-        }
-        socket?.send(JSON.stringify(data))
+        // const data = {
+        //     "topic": "kane williamson",
+        //     "words": 500,
+        //     "language": "arabic",
+        //     "region": "New zealand",
+        //     "tone": "Realistic",
+        //     "pronouns": "Third person"
+        // }
+        socket?.send(JSON.stringify(PAYLOAD))
         setMessages(prevMessages => [...prevMessages, input_message])
         console.log(messages, '----messages----');
 
@@ -76,7 +76,7 @@ const ChatModule = () => {
                     {messages.map((value, index) => (
                         <div key={index} className="message-box">
                             {/* <img src={profile_picture} alt="profile"></img> */}
-                            <p>{value}</p>
+                            {value}
                         </div>
                     ))}
                     {/* {fullMessage} */}
