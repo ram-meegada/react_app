@@ -17,7 +17,13 @@ const ChatModule = () => {
     const [index, setIndex] = useState(0)
 
     useEffect(() => {
-        const ws = new WebSocket("ws://127.0.0.1:9041/audio-to-text/");
+        const n = "abcdefghijklmnopqrstuvwxyz"
+        let random_string = ''
+        for (let i=0; i<=10; i++){
+            let num = Math.floor(Math.random() * n.length)
+            random_string += n[num]
+        }
+        const ws = new WebSocket(`ws://127.0.0.1:8000/ws/chat/`);
         setSocket(ws)
         const profile_picture = localStorage.getItem("profile_picture")
         if (profile_picture) {
@@ -30,19 +36,27 @@ const ChatModule = () => {
             toast.success("Connection established successfully.")
         });
         socket?.addEventListener("message", (event) => {
-            console.log(event.data, typeof(event.data), '------');
+            // console.log(event.data, typeof(event.data), '------');
             const data = JSON.parse(event.data)
             if (data.signal == 1) {
+
                 setMessages([...messages, data.data])
+                // console.log(data.data);
             }
             else if (data.signal == 0) {
                 setSuccessMessage("Summary generated successfully")
+                console.log("---------Summary generated successfully--------");
+
             }
             // setFullMessage(event.data);
         })
         socket?.addEventListener("close", (e) => {
-            toast.error("Connection closed");
+            console.log(e, "---------connection closed--------");
+            // toast.error("Connection closed");
         })
+        // return () => {
+        //     socket?.close()
+        // }
     })
 
     useEffect(() => {
@@ -60,7 +74,7 @@ const ChatModule = () => {
         //     "tone": "Realistic",
         //     "pronouns": "Third person"
         // }
-        socket?.send(JSON.stringify(PAYLOAD))
+        socket?.send(JSON.stringify({hit: input_message}))
         setMessages(prevMessages => [...prevMessages, input_message])
         console.log(messages, '----messages----');
 
@@ -76,7 +90,7 @@ const ChatModule = () => {
                     {messages.map((value, index) => (
                         <div key={index} className="message-box">
                             {/* <img src={profile_picture} alt="profile"></img> */}
-                            {value}
+                            <div dangerouslySetInnerHTML={{__html: value}} />
                         </div>
                     ))}
                     {/* {fullMessage} */}

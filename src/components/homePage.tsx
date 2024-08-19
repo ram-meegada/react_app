@@ -78,7 +78,7 @@ function HomePage() {
               <a href="/quiz-listing">Take Quiz</a>
             </li>
             <li>
-              <a href="#">Manage #</a>
+              <a href="/speech">Speech App</a>
             </li>
           </ul>
         </div>

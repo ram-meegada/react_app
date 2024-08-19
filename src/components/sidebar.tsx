@@ -10,7 +10,9 @@ function SideBar() {
     <>
       <div className="home-container">
         <div className="home-sidebar">
-          <h1 className="home-sidebar-heading"><a href="/home">LOGO</a></h1>
+          <h1 className="home-sidebar-heading">
+            <a href="/home">LOGO</a>
+          </h1>
           <ul className="home-content">
             <li>
               <a href="#">Manage Colours</a>
@@ -25,7 +27,7 @@ function SideBar() {
               <a href="/quiz-listing">Take Quiz</a>
             </li>
             <li>
-              <a href="#">Manage #</a>
+              <a href="/speech">Speech App</a>
             </li>
           </ul>
         </div>

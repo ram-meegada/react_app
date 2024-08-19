@@ -1,5 +1,6 @@
 import React, {useState} from "react";
 import { BrowserRouter as Router, Route, Link, Routes, useLocation } from "react-router-dom";
+import 'regenerator-runtime/runtime';
 import SignUp from "./components/signUp";
 import LoginIn from "./components/loginIn";
 import HomePage from "./components/homePage";
@@ -16,6 +17,7 @@ import ChatModule from "./features/chat";
 import ViewColour from "./features/viewColour";
 import AttemptQuiz from "./features/attemptQuiz";
 import QuizListing from "./features/quizListing";
+import SpeechRecognitionApp from "./features/speechRecognition";
 
 function App() {
     const [email, password] = ["", ""];
@@ -38,6 +40,7 @@ function App() {
           <Route path="/chat" element={<ChatModule />}/>
           <Route path="/attempt-quiz" element={<AttemptQuiz />}/>
           <Route path="/quiz-listing" element={<QuizListing />}/>
+          <Route path="/speech" element={<SpeechRecognitionApp />}/>
         </Routes>
       </div>
     )
